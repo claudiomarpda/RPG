@@ -8,6 +8,22 @@
 
 class BattleControl {
 
+private:
+    bool battleOver;
+    // vector of players and enemies
+
+public:
+    BattleControl();
+
+    void setBattleOver(bool battleOver);
+
+    bool isBattleOver() const;
+
+    static int randomize(int range);
+
+    void start();
+
+    /*Attack*/ void enemyAttack();
 };
 
 

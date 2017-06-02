@@ -10,10 +10,16 @@
 using namespace std;
 
 class Weapon {
+
 private:
     float attackPercentage;
 
 public:
+
+    Weapon();
+
+    Weapon(float attackPercentage);
+
     float getAttackPercentage() const;
 
     void setAttackPercentage(float attackPercentage);

@@ -12,30 +12,17 @@ int BattleControl::randomize(int range) {
     return (rand() % range);
 }
 
-BattleControl::BattleControl() {
-    battleOver = false;
-}
-
-/**
- * Checks if the current battle is over.
- * @return true if over, else false.
- */
-bool BattleControl::isBattleOver() const {
-    // checks if there is at least one individual alive in each group
-    return battleOver;
-}
-
 void BattleControl::setBattleOver(bool battleOver) {
-    BattleControl::battleOver = battleOver;
+    BattleControl::battleFinished = battleOver;
 }
 
 void BattleControl::start() {
-    while (!isBattleOver()) {
+    while (!isBattleFinished()) {
         // run vector
         // perform attack
 
         /*for (auto &&item :) {
-           if(battleControl.battleOver() {
+           if(battleControl.battleFinished() {
 
                 break;
            }
@@ -49,4 +36,18 @@ void BattleControl::start() {
 
 //   return attack;
 }
+
+BattleControl::BattleControl(const vector<Individual> &playerTeam, const vector<Individual> &enemyTeam) :
+        playerTeam(playerTeam), enemyTeam(enemyTeam) {
+    battleFinished = false;
+}
+
+/**
+ * Checks if the current battle is over.
+ */
+bool BattleControl::isBattleFinished() const {
+    // checks if there is at least one individual alive in each group
+    return battleFinished;
+}
+
 

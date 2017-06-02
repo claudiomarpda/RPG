@@ -6,18 +6,21 @@
 #define RPG_BATTLECONTROL_H
 
 
+#include "../model/Individual.h"
+
 class BattleControl {
 
 private:
-    bool battleOver;
-    // vector of players and enemies
+    bool battleFinished;
+    vector<Individual> playerTeam;
+    vector<Individual> enemyTeam;
 
 public:
-    BattleControl();
+    BattleControl(const vector<Individual> &playerTeam, const vector<Individual> &enemyTeam);
 
     void setBattleOver(bool battleOver);
 
-    bool isBattleOver() const;
+    bool isBattleFinished() const;
 
     static int randomize(int range);
 

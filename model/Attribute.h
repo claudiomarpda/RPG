@@ -5,25 +5,40 @@
 #ifndef RPG_ATTRIBUTE_H
 #define RPG_ATTRIBUTE_H
 
+#include <string>
+#include <vector>
+
+using namespace std;
 
 class Attribute {
+
 private:
     int strength;
-    int agillity;
+    int agility;
     int vitality;
     int intelligence;
-public:
-    Attribute(int strength, int agillity, int vitality, int intelligence);
-    Attribute();
-    int getStrength() const;
-    void setStrength(int strength);
-    int getAgillity() const;
-    void setAgillity(int agillity);
-    int getVitality() const;
-    void setVitality(int vitality);
-    int getIntelligence() const;
-    void setIntelligence(int intelligence);
 
+public:
+
+    Attribute();
+
+    Attribute(int strength, int agility, int vitality, int intelligence);
+
+    int getStrength() const;
+
+    void setStrength(int strength);
+
+    int getAgillity() const;
+
+    void setAgility(int agility);
+
+    int getVitality() const;
+
+    void setVitality(int vitality);
+
+    int getIntelligence() const;
+
+    void setIntelligence(int intelligence);
 };
 
 

@@ -6,6 +6,7 @@
 
 HeartPoint::HeartPoint(int vitality) {
     calculateMaxHp(vitality);
+    currentHp = maxHp;
 }
 
 int HeartPoint::getMaxHp() const {
@@ -23,6 +24,11 @@ int HeartPoint::getCurrentHp() const {
 void HeartPoint::setCurrentHp(int currentHp) {
     HeartPoint::currentHp = currentHp;
 }
+
 int HeartPoint::calculateMaxHp(int vitality) {
     setMaxHp(vitality * variableHp);
+}
+
+HeartPoint::HeartPoint() {
+
 }

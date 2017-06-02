@@ -4,6 +4,10 @@
 
 #include "Weapon.h"
 
+Weapon::Weapon() {}
+
+Weapon::Weapon(float attackPercentage) : attackPercentage(attackPercentage) {}
+
 float Weapon::getAttackPercentage() const {
     return attackPercentage;
 }
@@ -14,6 +18,7 @@ void Weapon::setAttackPercentage(float attackPercentage) {
 
 float Weapon::calculateAttack(float attackPercentage) {
     return attackPercentage/100;
-
-
 }
+
+
+

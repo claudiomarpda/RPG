@@ -4,9 +4,13 @@
 
 #include "Attribute.h"
 
-Attribute::Attribute(int strength, int agillity, int vitality, int intelligence) {
+Attribute::Attribute() {
+
+}
+
+Attribute::Attribute(int strength, int agility, int vitality, int intelligence) {
     setStrength(strength);
-    setAgillity(agillity);
+    setAgility(agility);
     setVitality(vitality);
     setIntelligence(intelligence);
 }
@@ -20,14 +24,14 @@ void Attribute::setStrength(int strength) {
 }
 
 int Attribute::getAgillity() const {
-    return agillity;
+    return agility;
 }
 
-void Attribute::setAgillity(int agillity) {
-    Attribute::agillity = agillity;
+void Attribute::setAgility(int agility) {
+    Attribute::agility = agility;
 }
 
-int  Attribute::getVitality() const {
+int Attribute::getVitality() const {
     return vitality;
 }
 
@@ -42,6 +46,8 @@ int Attribute::getIntelligence() const {
 void Attribute::setIntelligence(int intelligence) {
     Attribute::intelligence = intelligence;
 }
+
+
 
 
 

@@ -6,6 +6,7 @@
 #define RPG_INDIVIDUALDAO_H
 
 #include <string>
+#include "../model/Individual.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ public:
 
     /*vector<Individual>*/ void readEnemies();
 
-    /*vector<Individual>*/ void readIndividual(const string fleName);
+    vector<string> readIndividual(const string fleName);
 };
 
 

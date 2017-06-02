@@ -7,15 +7,19 @@
 
 
 class Level {
+
 private:
-    int nextLvl=10;
-    int exp=0;
-    int lvl=1;
+    int nextLvl = 10;
+    int exp = 0;
+    int lvl = 1;
     const static int MIN = 1;
     const static int MAX = 50;
 
-
 public:
+
+    Level();
+
+    Level(int exp, int lvl);
 
     int getExp() const;
 

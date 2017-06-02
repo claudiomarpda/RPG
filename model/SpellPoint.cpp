@@ -6,6 +6,7 @@
 
 SpellPoint::SpellPoint(int intelligence) {
     calculateMaxSp(intelligence);
+    currentSp = maxSp;
 }
 
 int SpellPoint::getMaxSp() const {
@@ -26,6 +27,10 @@ void SpellPoint::setCurrentSp(int currentSp) {
 
 int SpellPoint::calculateMaxSp(int intelligence) {
     setMaxSp(intelligence * variableSp);
+}
+
+SpellPoint::SpellPoint() {
+
 }
 
 

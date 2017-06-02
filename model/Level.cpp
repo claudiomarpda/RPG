@@ -4,6 +4,9 @@
 
 #include "Level.h"
 
+Level::Level() {}
+
+Level::Level(int exp, int lvl) : exp(exp), lvl(lvl) {}
 
 int Level::getNextLvl() const {
     return nextLvl;
@@ -49,3 +52,5 @@ void Level::addExp(int exp){
     if(aux >= nextLvl)
         levelUp(nextLvl, lvl);
 }
+
+

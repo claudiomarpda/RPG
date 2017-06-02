@@ -14,11 +14,17 @@ private:
     int variableHp = 5;
 public:
     HeartPoint(int vitality);
+
     HeartPoint();
+
     int getMaxHp() const;
+
     void setMaxHp(int maxHp);
+
     int getCurrentHp() const;
+
     void setCurrentHp(int currentHp);
+
     int calculateMaxHp(int vitality);
 };
 

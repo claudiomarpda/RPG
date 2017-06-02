@@ -6,7 +6,7 @@
 #define RPG_BATTLECONTROL_H
 
 
-#include "../model/Individual.h"
+#include "Individual.h"
 
 class BattleControl {
 

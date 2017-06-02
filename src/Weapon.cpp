@@ -2,7 +2,7 @@
 // Created by amaro on 25/05/2017.
 //
 
-#include "Weapon.h"
+#include "../include/Weapon.h"
 
 Weapon::Weapon() {}
 

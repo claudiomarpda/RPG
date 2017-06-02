@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "Individual.h"
+#include "../include/Individual.h"
 
 Individual::Individual(vector<string> values) {
 

@@ -2,7 +2,7 @@
 // Created by mz on 01/06/17.
 //
 
-#include "Skill.h"
+#include "../include/Skill.h"
 
 Skill::Skill(const string &name, int spConsumption, const string &element) : name(name), spConsumption(spConsumption), element(element) {}
 

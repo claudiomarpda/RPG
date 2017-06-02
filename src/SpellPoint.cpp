@@ -2,7 +2,7 @@
 // Created by Alisson on 25/05/2017.
 //
 
-#include "SpellPoint.h"
+#include "../include/SpellPoint.h"
 
 SpellPoint::SpellPoint(int intelligence) {
     calculateMaxSp(intelligence);

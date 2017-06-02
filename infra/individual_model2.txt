@@ -1,0 +1,18 @@
+#Individual
+
+# Attributes: str, agi, vit, int
+2 2 2 1
+
+# Class
+Warrior
+
+# Level # EXP
+1 1
+
+# Element
+Neutral
+
+# Weapon
+10
+
+# Magic

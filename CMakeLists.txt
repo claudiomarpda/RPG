@@ -3,5 +3,5 @@ project(RPG)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp model/Individual.cpp model/Individual.h infra/IndividualDAO.cpp infra/IndividualDAO.h control/BattleControl.cpp control/BattleControl.h model/Weapon.cpp model/Weapon.h model/Level.cpp model/Level.h model/HeartPoint.cpp model/HeartPoint.h model/SpellPoint.cpp model/SpellPoint.h model/Attribute.cpp model/Attribute.h model/Element.h model/Skill.cpp model/Skill.h)
+set(SOURCE_FILES main.cpp src/Individual.cpp include/Individual.h src/IndividualDAO.cpp include/IndividualDAO.h src/BattleControl.cpp include/BattleControl.h src/Weapon.cpp include/Weapon.h src/Level.cpp include/Level.h src/HeartPoint.cpp include/HeartPoint.h src/SpellPoint.cpp include/SpellPoint.h src/Attribute.cpp include/Attribute.h include/Element.h src/Skill.cpp include/Skill.h)
 add_executable(RPG ${SOURCE_FILES})

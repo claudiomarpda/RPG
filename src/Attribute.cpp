@@ -2,7 +2,7 @@
 // Created by Alisson on 25/05/2017.
 //
 
-#include "Attribute.h"
+#include "../include/Attribute.h"
 
 Attribute::Attribute() {
 

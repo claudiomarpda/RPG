@@ -2,7 +2,7 @@
 // Created by Alisson on 25/05/2017.
 //
 
-#include "HeartPoint.h"
+#include "../include/HeartPoint.h"
 
 HeartPoint::HeartPoint(int vitality) {
     calculateMaxHp(vitality);

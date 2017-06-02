@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <iostream>
-#include "IndividualDAO.h"
+#include "../include/IndividualDAO.h"
 
 void IndividualDAO::readPlayers() {
     vector<string> values = readIndividual(MAGE_FILE);

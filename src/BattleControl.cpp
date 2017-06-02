@@ -3,7 +3,7 @@
 //
 
 #include <cstdlib>
-#include "BattleControl.h"
+#include "../include/BattleControl.h"
 
 /**
  * Generates a random number in the given range.

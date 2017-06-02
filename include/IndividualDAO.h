@@ -6,7 +6,7 @@
 #define RPG_INDIVIDUALDAO_H
 
 #include <string>
-#include "../model/Individual.h"
+#include "Individual.h"
 
 using namespace std;
 

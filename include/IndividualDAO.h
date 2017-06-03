@@ -10,22 +10,22 @@
 
 using namespace std;
 
-const string MAGE_FILE = "mage.rpg";
-const string PRIEST_FILE = "priest.rpg";
-const string WARRIOR_FILE = "warrior.rpg";
-const string MONSTER_1 = "enemy1.rpg";
-const string MONSTER_2 = "enemy2.rpg";
+const static string MAGE_FILE = "mage.rpg";
+const static string PRIEST_FILE = "priest.rpg";
+const static string WARRIOR_FILE = "warrior.rpg";
+const static string ENEMY1_FILE = "enemy1.rpg";
+const static string ENEMY2_FILE = "enemy2.rpg";
 
 class IndividualDAO {
 
 public:
     void savePlayers(/*vector<Individual> i*/);
 
-    /*vector<Individual>*/ void readPlayers();
+    static vector<Individual> readPlayers();
 
-    /*vector<Individual>*/ void readEnemies();
+    static vector<Individual> readEnemies();
 
-    vector<string> readIndividual(const string fleName);
+    static vector<string> readIndividual(const string fleName);
 };
 
 

@@ -6,16 +6,33 @@
 #include <fstream>
 #include <iostream>
 #include "../include/IndividualDAO.h"
+#include "../include/Mage.h"
+#include "../include/Warrior.h"
 
-void IndividualDAO::readPlayers() {
-    vector<string> values = readIndividual(MAGE_FILE);
+vector<Individual> IndividualDAO::readPlayers() {
+    vector<Individual> playerTeam;
+    vector<string> values;
 
-     Individual individual(values);
-    individual.print();
+    values = readIndividual(MAGE_FILE);
+    playerTeam.push_back(Mage(values));
+
+    values = readIndividual(WARRIOR_FILE);
+    playerTeam.push_back(Warrior(values));
+
+    return playerTeam;
 }
 
-void IndividualDAO::readEnemies() {
-    readIndividual(MONSTER_1);
+vector<Individual> IndividualDAO::readEnemies() {
+    vector<Individual> enemyTeam;
+    vector<string> values;
+
+    values = readIndividual(ENEMY1_FILE);
+    enemyTeam.push_back(Individual(values));
+
+    values = readIndividual(ENEMY2_FILE);
+    enemyTeam.push_back(Individual(values));
+
+    return enemyTeam;
 }
 
 vector<string> IndividualDAO::readIndividual(const string fileName) {

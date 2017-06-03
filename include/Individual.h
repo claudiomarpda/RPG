@@ -16,6 +16,9 @@
 
 using namespace std;
 
+const static string WARRIOR = "Warrior";
+const static string MAGE = "Mage";
+
 class Individual {
 
 private:
@@ -26,8 +29,10 @@ private:
     Weapon weapon;
     Level level;
     vector<Skill> skills;
+    string job;
 
 public:
+//    const static string MAGE = "Mage";
 
     Individual(vector<string> values);
 
@@ -59,7 +64,14 @@ public:
 
     void setSkills(const vector<Skill> &skills);
 
-    void print() const;
+    void print(ofstream &outLogger) const;
+
+    const string &getJob() const;
+
+    void setJob(const string &job);
+
+    virtual void attack(Individual enemy);
+
 };
 
 

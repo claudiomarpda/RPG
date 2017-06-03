@@ -72,6 +72,7 @@ public:
 
     virtual void attack(Individual enemy);
 
+    const string logString() const;
 };
 
 

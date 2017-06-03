@@ -130,4 +130,24 @@ void Individual::attack(Individual enemy) {
 
 }
 
+const string Individual::logString() const {
+    string log = "";
+    log += job + "\n";
+    log += "Current HP: " + to_string(hp.getCurrentHp()) + " Max HP: " + to_string(hp.getMaxHp()) + "\n";
+    log += "Current SP: " + to_string(sp.getCurrentSp()) + " Max SP: " + to_string(sp.getMaxSp()) + "\n";
+
+    log += "Attributes: " +
+                 to_string(attribute.getStrength()) + " " +
+                 to_string(attribute.getAgillity()) + " " +
+                 to_string(attribute.getVitality()) + " " +
+                 to_string(attribute.getIntelligence()) + "\n";
+
+    log += "Element: " + element + "\n";
+    log += "Weapon: " + to_string(weapon.getAttackPercentage()) + "\n";
+    log += "Level: " + to_string(level.getLvl()) + " EXP: " + to_string(level.getExp()) + "\n";
+    log += "\n";
+
+    return log;
+}
+
 

@@ -24,7 +24,7 @@ public:
 
     void setAttackPercentage(float attackPercentage);
 
-    float calculateAttack(float attackPercentage);
+    float calculateAttack() const;
 
 };
 

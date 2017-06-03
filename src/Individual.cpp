@@ -5,6 +5,9 @@
 #include <fstream>
 #include <iostream>
 #include "../include/Individual.h"
+#include "../include/AttackManager.h"
+
+Individual::Individual() {}
 
 Individual::Individual(vector<string> values) {
 
@@ -34,7 +37,7 @@ Individual::Individual(vector<string> values) {
 
 }
 
-const HeartPoint &Individual::getHp() const {
+HeartPoint &Individual::getHp() {
     return hp;
 }
 
@@ -74,7 +77,7 @@ void Individual::setWeapon(const Weapon &weapon) {
     Individual::weapon = weapon;
 }
 
-const Level &Individual::getLevel() const {
+Level &Individual::getLevel() {
     return level;
 }
 
@@ -90,34 +93,6 @@ void Individual::setSkills(const vector<Skill> &skills) {
     Individual::skills = skills;
 }
 
-void Individual::print(ofstream &outLogger) const {
-    outLogger << job << endl;
-    outLogger << "Current HP: " + to_string(hp.getCurrentHp()) + " Max HP: " + to_string(hp.getMaxHp()) << endl;
-    outLogger << "Current SP: " + to_string(sp.getCurrentSp()) + " Max SP: " + to_string(sp.getMaxSp()) << endl;
-
-    outLogger << "Attributes: " +
-                 to_string(attribute.getStrength()) + " " +
-                 to_string(attribute.getAgillity()) + " " +
-                 to_string(attribute.getVitality()) + " " +
-                 to_string(attribute.getIntelligence()) << endl;
-
-    outLogger << "Element: " + element << endl;
-    outLogger << "Weapon: " << fixed << to_string(weapon.getAttackPercentage()) << endl;
-    outLogger << "Level: " + to_string(level.getLvl()) + " EXP: " + to_string(level.getExp()) << endl;
-    outLogger << endl;
-
-    printf("Attributes: %d %d %d %d\n",
-           attribute.getStrength(),
-           attribute.getAgillity(),
-           attribute.getVitality(),
-           attribute.getIntelligence());
-
-    cout << "Element: " << element << endl;
-    printf("Weapon: %.2f%%\n", weapon.getAttackPercentage());
-    printf("Level: %d %d\n", level.getExp(), level.getLvl());
-    cout << "Job: " << job << endl;
-}
-
 const string &Individual::getJob() const {
     return job;
 }
@@ -126,12 +101,13 @@ void Individual::setJob(const string &job) {
     Individual::job = job;
 }
 
-void Individual::attack(Individual enemy) {
-
+void Individual::performAttack(Individual &target) {
+    AttackControl::managePhysicalAttack(*this, target);
 }
 
 const string Individual::logString() const {
     string log = "";
+
     log += job + "\n";
     log += "Current HP: " + to_string(hp.getCurrentHp()) + " Max HP: " + to_string(hp.getMaxHp()) + "\n";
     log += "Current SP: " + to_string(sp.getCurrentSp()) + " Max SP: " + to_string(sp.getMaxSp()) + "\n";
@@ -145,9 +121,13 @@ const string Individual::logString() const {
     log += "Element: " + element + "\n";
     log += "Weapon: " + to_string(weapon.getAttackPercentage()) + "\n";
     log += "Level: " + to_string(level.getLvl()) + " EXP: " + to_string(level.getExp()) + "\n";
-    log += "\n";
 
     return log;
 }
+
+void Individual::decreaseHp(int damage) {
+    hp.decrease(damage);
+}
+
 
 

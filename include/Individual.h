@@ -32,11 +32,12 @@ private:
     string job;
 
 public:
-//    const static string MAGE = "Mage";
+
+    Individual();
 
     Individual(vector<string> values);
 
-    const HeartPoint &getHp() const;
+    HeartPoint &getHp();
 
     void setHp(const HeartPoint &hp);
 
@@ -56,7 +57,7 @@ public:
 
     void setWeapon(const Weapon &weapon);
 
-    const Level &getLevel() const;
+    Level &getLevel();
 
     void setLevel(const Level &level);
 
@@ -64,15 +65,15 @@ public:
 
     void setSkills(const vector<Skill> &skills);
 
-    void print(ofstream &outLogger) const;
-
     const string &getJob() const;
 
     void setJob(const string &job);
 
-    virtual void attack(Individual enemy);
+    virtual void performAttack(Individual &target);
 
     const string logString() const;
+
+    void decreaseHp(int damage);
 };
 
 

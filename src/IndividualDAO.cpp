@@ -12,6 +12,9 @@
 #include "../include/Log.h"
 
 vector<Individual> IndividualDAO::readPlayers() {
+    if(Log::ON) {
+        Log::write("- Player team -");
+    }
     vector<Individual> playerTeam;
     vector<string> values;
 
@@ -19,7 +22,7 @@ vector<Individual> IndividualDAO::readPlayers() {
     Mage mage(values);
     playerTeam.push_back(mage);
 
-    if(LoggerConfig::ON) {
+    if(Log::ON) {
         Log::write(mage.logString());
     }
 
@@ -27,7 +30,7 @@ vector<Individual> IndividualDAO::readPlayers() {
     Warrior warrior(values);
     playerTeam.push_back(warrior);
 
-    if(LoggerConfig::ON) {
+    if(Log::ON) {
         Log::write(warrior.logString());
     }
 
@@ -35,6 +38,9 @@ vector<Individual> IndividualDAO::readPlayers() {
 }
 
 vector<Individual> IndividualDAO::readEnemies() {
+    if(Log::ON) {
+        Log::write("- Enemy team -");
+    }
     vector<Individual> enemyTeam;
     vector<string> values;
 
@@ -42,7 +48,7 @@ vector<Individual> IndividualDAO::readEnemies() {
     Individual enemy1(values);
     enemyTeam.push_back(enemy1);
 
-    if(LoggerConfig::ON) {
+    if(Log::ON) {
         Log::write(enemy1.logString());
     }
 
@@ -50,7 +56,7 @@ vector<Individual> IndividualDAO::readEnemies() {
     Individual enemy2(values);
     enemyTeam.push_back(enemy2);
 
-    if(LoggerConfig::ON) {
+    if(Log::ON) {
         Log::write(enemy2.logString());
     }
 

@@ -11,22 +11,29 @@
 class BattleControl {
 
 private:
-    bool battleFinished;
     vector<Individual> playerTeam;
     vector<Individual> enemyTeam;
 
-public:
-    BattleControl(const vector<Individual> &playerTeam, const vector<Individual> &enemyTeam);
-
-    void setBattleOver(bool battleOver);
+    int teamExp;
 
     bool isBattleFinished() const;
 
     static int randomize(int range);
 
+    bool isTeamDead(const vector<Individual> &team) const;
+
+    bool isPlayerTeamDead(const vector<Individual> &team) const;
+
+    bool isEnemyTeamDead(const vector<Individual> &team) const;
+
+public:
+    BattleControl(vector<Individual> &playerTeam, vector<Individual> &enemyTeam);
+
     void start();
 
     /*Attack*/ void enemyAttack();
+
+
 };
 
 

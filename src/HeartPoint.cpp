@@ -2,11 +2,16 @@
 // Created by Alisson on 25/05/2017.
 //
 
+#include <iostream>
 #include "../include/HeartPoint.h"
 
+HeartPoint::HeartPoint() {
+
+}
+
 HeartPoint::HeartPoint(int vitality) {
-    calculateMaxHp(vitality);
-    currentHp = maxHp;
+    setMaxHp(calculateMaxHp(vitality));
+    setCurrentHp(maxHp);
 }
 
 int HeartPoint::getMaxHp() const {
@@ -26,9 +31,12 @@ void HeartPoint::setCurrentHp(int currentHp) {
 }
 
 int HeartPoint::calculateMaxHp(int vitality) {
-    setMaxHp(vitality * variableHp);
+    return vitality * variableHp;
 }
 
-HeartPoint::HeartPoint() {
-
+void HeartPoint::decrease(int damage) {
+    HeartPoint::currentHp -= damage;
+    if (currentHp < 0) {
+        currentHp = 0;
+    }
 }

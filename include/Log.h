@@ -19,6 +19,8 @@ private:
 
 public:;
 
+    const static bool ON = true;
+
     static void open();
 
     static void write(const string &data);

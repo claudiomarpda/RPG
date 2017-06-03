@@ -6,6 +6,6 @@
 
 Mage::Mage(const vector<string> &values) : Individual(values) {}
 
-void Mage::attack(Individual enemy) {
-
+void Mage::performAttack(Individual &target) {
+    Individual::performAttack(target);
 }

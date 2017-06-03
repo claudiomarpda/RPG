@@ -8,7 +8,7 @@
 class LoggerConfig {
 
 public:
-    static const bool ON = true;
+
 };
 
 #endif //RPG_LOGGERCONFIG_H

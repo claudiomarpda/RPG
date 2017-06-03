@@ -16,7 +16,7 @@ void Weapon::setAttackPercentage(float attackPercentage) {
     Weapon::attackPercentage = attackPercentage;
 }
 
-float Weapon::calculateAttack(float attackPercentage) {
+float Weapon::calculateAttack() const {
     return attackPercentage/100;
 }
 

@@ -6,6 +6,6 @@
 
 Warrior::Warrior(const vector<string> &values) : Individual(values) {}
 
-void Warrior::attack(Individual enemy) {
-    Individual::attack(enemy);
+void Warrior::performAttack(Individual &target) {
+    Individual::performAttack(target);
 }

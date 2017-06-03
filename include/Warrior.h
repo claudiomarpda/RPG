@@ -13,7 +13,7 @@ class Warrior : public Individual {
 public:
     Warrior(const vector<string> &values);
 
-    void attack(Individual enemy) override;
+    void performAttack(Individual &target) override;
 };
 
 

@@ -17,6 +17,8 @@ int main() {
     BattleControl battleControl(playerTeam, enemyTeam);
     battleControl.start();
 
+    IndividualDAO::writePlayers(playerTeam);
+
     if (Log::ON) {
         Log::close();
     }

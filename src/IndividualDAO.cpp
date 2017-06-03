@@ -12,7 +12,7 @@
 #include "../include/Log.h"
 
 vector<Individual> IndividualDAO::readPlayers() {
-    if(Log::ON) {
+    if (Log::ON) {
         Log::write("- Player team -");
     }
     vector<Individual> playerTeam;
@@ -22,7 +22,7 @@ vector<Individual> IndividualDAO::readPlayers() {
     Mage mage(values);
     playerTeam.push_back(mage);
 
-    if(Log::ON) {
+    if (Log::ON) {
         Log::write(mage.logString());
     }
 
@@ -30,7 +30,7 @@ vector<Individual> IndividualDAO::readPlayers() {
     Warrior warrior(values);
     playerTeam.push_back(warrior);
 
-    if(Log::ON) {
+    if (Log::ON) {
         Log::write(warrior.logString());
     }
 
@@ -38,7 +38,7 @@ vector<Individual> IndividualDAO::readPlayers() {
 }
 
 vector<Individual> IndividualDAO::readEnemies() {
-    if(Log::ON) {
+    if (Log::ON) {
         Log::write("- Enemy team -");
     }
     vector<Individual> enemyTeam;
@@ -48,7 +48,7 @@ vector<Individual> IndividualDAO::readEnemies() {
     Individual enemy1(values);
     enemyTeam.push_back(enemy1);
 
-    if(Log::ON) {
+    if (Log::ON) {
         Log::write(enemy1.logString());
     }
 
@@ -56,7 +56,7 @@ vector<Individual> IndividualDAO::readEnemies() {
     Individual enemy2(values);
     enemyTeam.push_back(enemy2);
 
-    if(Log::ON) {
+    if (Log::ON) {
         Log::write(enemy2.logString());
     }
 
@@ -66,22 +66,57 @@ vector<Individual> IndividualDAO::readEnemies() {
 vector<string> IndividualDAO::readIndividual(const string fileName) {
     ifstream in(fileName, ios::in);
     if (!in) {
-        cout << "File could not be opened.";
+        if(Log::ON) {
+            Log::write("File could not be opened");
+            exit(1);
+        }
     }
 
     vector<string> values;
     string value;
 
-    while(!in.eof()) {
+    while (!in.eof()) {
         in >> value;
         values.push_back(value);
-//        cout << value << " ";
     }
 
     in.close();
     return values;
 }
 
-void IndividualDAO::savePlayers() {
+
+void IndividualDAO::writePlayers(vector<Individual> playerTeam) {
+    if(Log::ON) {
+        Log::write("Saving player team to file...");
+    }
+    writeIndividual(MAGE_FILE, playerTeam.at(0));
+    writeIndividual(WARRIOR_FILE, playerTeam.at(1));
+
+    if(Log::ON) {
+        Log::write("Save successful");
+    }
+}
+
+void IndividualDAO::writeIndividual(const string fileName, Individual individual) {
+    ofstream out(fileName, ios::out);
+    if (!out) {
+        if(Log::ON) {
+            Log::write("File could not be opened");
+            exit(1);
+        }
+    }
+
+    string attributes = to_string(individual.getAttribute().getStrength()) + " " +
+                        to_string(individual.getAttribute().getAgillity()) + " " +
+                        to_string(individual.getAttribute().getVitality()) + " " +
+                        to_string(individual.getAttribute().getIntelligence());
+    out << attributes << endl;
+    out << individual.getJob() << endl;
+
+    string level_exp = to_string(individual.getLevel().getLvl()) + " " +
+                       to_string(individual.getLevel().getExp());
+    out << level_exp << endl;
+    out << individual.getElement() << endl;
+    out << individual.getWeapon().getAttackPercentage() << endl;
 
 }

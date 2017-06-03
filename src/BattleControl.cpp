@@ -78,7 +78,6 @@ void BattleControl::start() {
         }
     }
 
-
 }
 
 /*Attack*/ void BattleControl::enemyAttack() {

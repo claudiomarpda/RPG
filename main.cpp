@@ -1,12 +1,25 @@
 #include <iostream>
+#include <fstream>
 #include "include/IndividualDAO.h"
+#include "include/Log.h"
+#include "include/BattleControl.h"
 
 int main() {
     std::cout << "Hello, Player!" << std::endl;
 
-    IndividualDAO dao;
-    dao.readPlayers();
-//    dao.readEnemies();
+    if (Log::ON) {
+        Log::open();
+    }
+
+    vector<Individual> playerTeam = IndividualDAO::readPlayers();
+    vector<Individual> enemyTeam = IndividualDAO::readEnemies();
+
+    BattleControl battleControl(playerTeam, enemyTeam);
+    battleControl.start();
+
+    if (Log::ON) {
+        Log::close();
+    }
 
     return 0;
 }

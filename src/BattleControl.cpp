@@ -6,8 +6,11 @@
 #include <iostream>
 #include "../include/BattleControl.h"
 #include "../include/Log.h"
-#include "../include/IndividualDAO.h"
 
+BattleControl::BattleControl(const vector<Individual *> &playerTeam, const vector<Individual *> &enemyTeam)
+        : playerTeam(playerTeam), enemyTeam(enemyTeam) {
+    teamExp = 0;
+}
 
 /**
  * Generates a random number in the given range.
@@ -23,6 +26,7 @@ void BattleControl::start() {
 
     while (!isBattleFinished()) {
 
+        // Automated random physical attacks from player team to enemy team
         for (auto &p : playerTeam) {
             Individual *target;
 
@@ -31,7 +35,9 @@ void BattleControl::start() {
 
             p->performAttack(*target);
             if (target->getHp().getCurrentHp() <= 0) {
-                Log::write(target->getJob() + " is dead #");
+                if(Log::ON) {
+                    Log::write(target->getJob() + " is dead #");
+                }
                 // add exp from defeated enemy
                 teamExp += target->getLevel().getExp();
                 enemyTeam.erase(enemyTeam.begin() + index);
@@ -41,13 +47,16 @@ void BattleControl::start() {
             }
         }
 
+        // Automated random physical attacks from enemy team to player team
         for (auto &e  : enemyTeam) {
             int index = randomize(playerTeam.size());
             Individual *target = playerTeam.at(index);
 
             e->performAttack(*target);
             if (target->getHp().getCurrentHp() <= 0) {
-                Log::write(target->getJob() + " is dead");
+                if(Log::ON) {
+                    Log::write(target->getJob() + " is dead #");
+                }
                 enemyTeam.erase(enemyTeam.begin() + index);
                 if (isBattleFinished()) {
                     break;
@@ -76,7 +85,7 @@ void BattleControl::start() {
 }
 
 /**
- * Checks if the is at least one individual alive in each team.
+ * Checks if there is at least one individual alive in each team.
  */
 bool BattleControl::isBattleFinished() const {
     return isEnemyTeamDead(enemyTeam) || isPlayerTeamDead(playerTeam);
@@ -102,8 +111,4 @@ bool BattleControl::isEnemyTeamDead(const vector<Individual *> &team) const {
     return isTeamDead(team);
 }
 
-BattleControl::BattleControl(const vector<Individual *> &playerTeam, const vector<Individual *> &enemyTeam)
-        : playerTeam(playerTeam), enemyTeam(enemyTeam) {
-    teamExp = 0;
-}
 

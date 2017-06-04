@@ -113,7 +113,7 @@ const string Individual::logString() const {
 
     log += "Attributes: " +
            to_string(attribute.getStrength()) + " " +
-           to_string(attribute.getAgillity()) + " " +
+           to_string(attribute.getAgility()) + " " +
            to_string(attribute.getVitality()) + " " +
            to_string(attribute.getIntelligence()) + "\n";
 

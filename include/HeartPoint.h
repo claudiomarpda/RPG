@@ -5,13 +5,15 @@
 #ifndef RPG_HEARTPOINT_H
 #define RPG_HEARTPOINT_H
 
-
+/**
+ * The heart points of an Individual.
+ */
 class HeartPoint {
 
 private:
     int maxHp;
     int currentHp;
-    int variableHp = 5;
+    const static int HP_RATE = 5;
 
     int calculateMaxHp(int vitality);
 

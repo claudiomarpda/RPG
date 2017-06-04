@@ -10,6 +10,10 @@
 
 using namespace std;
 
+/**
+ * The attributes of any individual that are used to calculate HeartPoint, Defense, Attack
+ * and several battle mechanic.
+ */
 class Attribute {
 
 private:
@@ -28,7 +32,7 @@ public:
 
     void setStrength(int strength);
 
-    int getAgillity() const;
+    int getAgility() const;
 
     void setAgility(int agility);
 

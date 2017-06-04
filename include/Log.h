@@ -12,6 +12,9 @@ using namespace std;
 
 const static string LOG_FILE_NAME = "log.log";
 
+/**
+ * Log system that can be used anywhere in the project.
+ */
 class Log {
 
 private:

@@ -10,6 +10,10 @@
 #include "../include/Log.h"
 #include "../include/Enemy.h"
 
+/**
+ * Reads all enemies from files.
+ * @return a vector of pointers to Individuals with polymorphism.
+ */
 vector<Individual *> IndividualDAO::readPlayers() {
     if (Log::ON) {
         Log::write("- Player team -");
@@ -35,7 +39,10 @@ vector<Individual *> IndividualDAO::readPlayers() {
 
     return playerTeam;
 }
-
+]/**
+ * Reads all enemies from files.
+ * @return a vector of pointers to Individuals with polymorphism.
+ */
 vector<Individual *> IndividualDAO::readEnemies() {
     if (Log::ON) {
         Log::write("- Enemy team -");
@@ -62,6 +69,11 @@ vector<Individual *> IndividualDAO::readEnemies() {
     return enemyTeam;
 }
 
+/**
+ * Read an individual's data according to file pattern.
+ * @param fileName is the file of one job, e.g, mage, warrior.
+ * @return a vector with one value at each position.
+ */
 vector<string> IndividualDAO::readIndividual(const string fileName) {
     ifstream in(fileName, ios::in);
     if (!in) {
@@ -83,7 +95,9 @@ vector<string> IndividualDAO::readIndividual(const string fileName) {
     return values;
 }
 
-
+/**
+ * Writes the data of all players' characters.
+ */
 void IndividualDAO::writePlayers(vector<Individual *> playerTeam) {
     if (Log::ON) {
         Log::write("Saving player team to file...");
@@ -96,6 +110,9 @@ void IndividualDAO::writePlayers(vector<Individual *> playerTeam) {
     }
 }
 
+/**
+ * Writes an individual's data to file according to the file pattern.
+ */
 void IndividualDAO::writeIndividual(const string fileName, Individual *individual) {
     ofstream out(fileName, ios::out);
     if (!out) {
@@ -106,7 +123,7 @@ void IndividualDAO::writeIndividual(const string fileName, Individual *individua
     }
 
     string attributes = to_string(individual->getAttribute().getStrength()) + " " +
-                        to_string(individual->getAttribute().getAgillity()) + " " +
+                        to_string(individual->getAttribute().getAgility()) + " " +
                         to_string(individual->getAttribute().getVitality()) + " " +
                         to_string(individual->getAttribute().getIntelligence());
     out << attributes << endl;

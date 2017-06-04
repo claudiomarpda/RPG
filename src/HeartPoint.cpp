@@ -31,7 +31,7 @@ void HeartPoint::setCurrentHp(int currentHp) {
 }
 
 int HeartPoint::calculateMaxHp(int vitality) {
-    return vitality * variableHp;
+    return vitality * HP_RATE;
 }
 
 void HeartPoint::decrease(int damage) {

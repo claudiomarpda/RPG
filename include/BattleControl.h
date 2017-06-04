@@ -8,6 +8,10 @@
 
 #include "Individual.h"
 
+/**
+ * The whole battle starts and ends here.
+ * Implements the mechanic and all the rules for the battle.
+ */
 class BattleControl {
 
 private:
@@ -30,10 +34,6 @@ public:
     BattleControl(const vector<Individual *> &playerTeam, const vector<Individual *> &enemyTeam);
 
     void start();
-
-    /*Attack*/ void enemyAttack();
-
-
 };
 
 

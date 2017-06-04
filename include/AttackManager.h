@@ -8,6 +8,11 @@
 
 #include "Individual.h"
 
+/**
+ * Calculates the results of attacks in opponents. When an attack is performed,
+ * its power is calculated and compared with the target defense, which can
+ * modify the individuals state, e.g, decrease hp.
+ */
 class AttackControl {
 
 public:

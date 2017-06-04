@@ -16,6 +16,9 @@
 
 using namespace std;
 
+/**
+ * Abstract class used as base for all jobs(classes) of the game.
+ */
 class Individual {
 
 private:
@@ -72,6 +75,9 @@ public:
 
     void addExp(int exp);
 
+    /**
+     * Allows level up bonus in a specific way in each concrete class.
+     */
     virtual void levelUp() = 0;
 };
 

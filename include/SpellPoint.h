@@ -5,7 +5,9 @@
 #ifndef RPG_SPELLPOINT_H
 #define RPG_SPELLPOINT_H
 
-
+/**
+ * The spell points of an Individual.
+ */
 class SpellPoint {
     private:
         int maxSp;

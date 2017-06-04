@@ -4,6 +4,10 @@
 
 #include "../include/SpellPoint.h"
 
+SpellPoint::SpellPoint() {
+
+}
+
 SpellPoint::SpellPoint(int intelligence) {
     calculateMaxSp(intelligence);
     currentSp = maxSp;
@@ -29,8 +33,5 @@ int SpellPoint::calculateMaxSp(int intelligence) {
     setMaxSp(intelligence * variableSp);
 }
 
-SpellPoint::SpellPoint() {
-
-}
 
 

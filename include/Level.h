@@ -5,6 +5,9 @@
 #ifndef RPG_LEVEL_H
 #define RPG_LEVEL_H
 
+/**
+ * The level of an Individual and its experience.
+ */
 class Level {
 
 private:

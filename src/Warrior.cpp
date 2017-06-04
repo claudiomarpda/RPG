@@ -17,7 +17,7 @@ void Warrior::levelUp() {
     }
     Attribute a = getAttribute();
     a.setStrength(a.getStrength() + STR_LEVEL_UP);
-    a.setAgility(a.getAgillity() + AGI_LEVEL_UP);
+    a.setAgility(a.getAgility() + AGI_LEVEL_UP);
     a.setVitality(a.getVitality() + VIT_LEVEL_UP);
     setAttribute(a);
 }

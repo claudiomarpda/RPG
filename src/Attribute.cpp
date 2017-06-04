@@ -23,7 +23,7 @@ void Attribute::setStrength(int strength) {
     Attribute::strength = strength;
 }
 
-int Attribute::getAgillity() const {
+int Attribute::getAgility() const {
     return agility;
 }
 

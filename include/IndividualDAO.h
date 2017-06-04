@@ -16,6 +16,10 @@ const static string WARRIOR_FILE = "warrior.rpg";
 const static string ENEMY1_FILE = "enemy1.rpg";
 const static string ENEMY2_FILE = "enemy2.rpg";
 
+/**
+ * Handles the persistence of individuals in files.
+ * The data are read at the beginning and written(updated) in the end.
+ */
 class IndividualDAO {
 
 private:

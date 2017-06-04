@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**
+ * Weapon increases the attack power of Individuals in percentage.
+ */
 class Weapon {
 
 private:

@@ -6,6 +6,9 @@
 #include "../include/AttackManager.h"
 #include "../include/Log.h"
 
+/**
+ * Calculates the power of an physical attack done and subtracts from target's physical defense.
+ */
 void AttackControl::managePhysicalAttack(Individual &attacker, Individual &target) {
 
     if (Log::ON) {
@@ -28,6 +31,9 @@ void AttackControl::managePhysicalAttack(Individual &attacker, Individual &targe
     }
 }
 
+/**
+ * Calculates the power of an magical attack done and subtracts from target's magical defense.
+ */
 void AttackControl::manageMagicalAttack(Individual &attacker, Individual &target) {
 
 }

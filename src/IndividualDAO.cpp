@@ -8,7 +8,7 @@
 #include "../include/Mage.h"
 #include "../include/Warrior.h"
 #include "../include/Log.h"
-#include "Enemy.h"
+#include "../include/Enemy.h"
 
 vector<Individual *> IndividualDAO::readPlayers() {
     if (Log::ON) {
@@ -119,5 +119,4 @@ void IndividualDAO::writeIndividual(const string fileName, Individual *individua
     out << level_exp << endl;
     out << individual->getElement() << endl;
     out << individual->getWeapon().getAttackPercentage() << endl;
-
 }

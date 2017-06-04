@@ -8,11 +8,13 @@ int main() {
     std::cout << "Hello, Player!" << std::endl;
 
     if (Log::ON) {
+        cout << "Log mode: ON" << endl;
+        cout << "Saving data to " << LOG_FILE_NAME << "... "<< endl;
         Log::open();
     }
 
-    vector<Individual*> playerTeam = IndividualDAO::readPlayers();
-    vector<Individual*> enemyTeam = IndividualDAO::readEnemies();
+    vector<Individual *> playerTeam = IndividualDAO::readPlayers();
+    vector<Individual *> enemyTeam = IndividualDAO::readEnemies();
 
     BattleControl battleControl(playerTeam, enemyTeam);
     battleControl.start();
@@ -21,9 +23,7 @@ int main() {
 
     if (Log::ON) {
         Log::close();
-        for (auto &&p: playerTeam) {
-            cout << p->getLevel().getLvl() << " " << p->getLevel().getExp() << endl;
-        }
+        cout << "Log finished" << endl;
     }
 
     return 0;

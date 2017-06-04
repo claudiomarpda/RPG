@@ -6,7 +6,7 @@
 #define RPG_ENEMY_H
 
 
-#include "../include/Individual.h"
+#include "Individual.h"
 
 class Enemy : public Individual{
 public:

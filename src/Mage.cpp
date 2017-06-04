@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "../include/Mage.h"
+#include "../include/Log.h"
 
 Mage::Mage(const vector<string> &values) : Individual(values) {}
 
@@ -12,7 +13,9 @@ void Mage::performAttack(Individual &target) {
 }
 
 void Mage::levelUp() {
-    std::cout << "mage level up\n";
+    if (Log::ON) {
+        Log::write(getJob() + " level up");
+    }
     Attribute a = getAttribute();
     a.setIntelligence(a.getIntelligence() + INT_LEVEL_UP);
     setAttribute(a);

@@ -3,19 +3,12 @@
 //
 
 #include <fstream>
-#include <iostream>
-#include <cstring>
 #include "../include/Individual.h"
 #include "../include/AttackManager.h"
-#include "../include/Mage.h"
 
 Individual::Individual() {}
 
 Individual::Individual(vector<string> values) {
-    for (auto &&s : values) {
-        cout << s << " ";
-    }
-    cout << "end" << endl;
     // attributes
     int str = stoi(values.at(0));
     int agi = stoi(values.at(1));

@@ -1,19 +1,19 @@
 - Player team -
-Wizard
+Mage
 Current HP: 5 Max HP: 5
-Current SP: 30 Max SP: 30
-Attributes: 1 1 1 3
+Current SP: 60 Max SP: 60
+Attributes: 1 1 1 6
 Element: Neutral
 Weapon: 10.000000
-Level: 1 EXP: 1
+Level: 2 EXP: 0
 
 Warrior
-Current HP: 10 Max HP: 10
+Current HP: 20 Max HP: 20
 Current SP: 10 Max SP: 10
-Attributes: 2 2 2 1
+Attributes: 4 4 4 1
 Element: Neutral
 Weapon: 10.000000
-Level: 1 EXP: 1
+Level: 2 EXP: 0
 
 - Enemy team -
 GreenJelly
@@ -34,50 +34,50 @@ Level: 1 EXP: 1
 
 - Battle begin -
 Target HP before: 5
-Wizard caused 1 damage to PinkJelly
+Mage caused 1 damage to PinkJelly
 Target HP after: 4
 Target HP before: 5
 Warrior caused 1 damage to GreenJelly
 Target HP after: 4
-Target HP before: 10
+Target HP before: 20
 GreenJelly caused 1 damage to Warrior
-Target HP after: 9
-Target HP before: 9
+Target HP after: 19
+Target HP before: 19
 PinkJelly caused 1 damage to Warrior
-Target HP after: 8
+Target HP after: 18
 Target HP before: 4
-Wizard caused 1 damage to PinkJelly
+Mage caused 1 damage to PinkJelly
 Target HP after: 3
 Target HP before: 3
 Warrior caused 1 damage to PinkJelly
 Target HP after: 2
 Target HP before: 5
-GreenJelly caused 1 damage to Wizard
+GreenJelly caused 1 damage to Mage
 Target HP after: 4
 Target HP before: 4
-PinkJelly caused 1 damage to Wizard
+PinkJelly caused 1 damage to Mage
 Target HP after: 3
 Target HP before: 2
-Wizard caused 1 damage to PinkJelly
+Mage caused 1 damage to PinkJelly
 Target HP after: 1
 Target HP before: 1
 Warrior caused 1 damage to PinkJelly
 Target HP after: 0
 PinkJelly is dead #
 Target HP before: 3
-GreenJelly caused 1 damage to Wizard
+GreenJelly caused 1 damage to Mage
 Target HP after: 2
 Target HP before: 4
-Wizard caused 1 damage to GreenJelly
+Mage caused 1 damage to GreenJelly
 Target HP after: 3
 Target HP before: 3
 Warrior caused 1 damage to GreenJelly
 Target HP after: 2
-Target HP before: 8
+Target HP before: 18
 GreenJelly caused 1 damage to Warrior
-Target HP after: 7
+Target HP after: 17
 Target HP before: 2
-Wizard caused 1 damage to GreenJelly
+Mage caused 1 damage to GreenJelly
 Target HP after: 1
 Target HP before: 1
 Warrior caused 1 damage to GreenJelly
@@ -85,4 +85,6 @@ Target HP after: 0
 GreenJelly is dead #
 - Battle is over -
 --- You WIN ---
-Exp gained 2 EXP
+You gained 2 EXP
+Saving player team to file...
+Save successful

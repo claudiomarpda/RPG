@@ -6,8 +6,8 @@
 # Class
 Wizard
 
-# Level # EXP
-1 1
+# Level, exp, nextLevel
+1 0 10
 
 # Element
 Neutral

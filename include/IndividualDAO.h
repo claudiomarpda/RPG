@@ -19,16 +19,16 @@ const static string ENEMY2_FILE = "enemy2.rpg";
 class IndividualDAO {
 
 private:
-    static void writeIndividual(const string fileName, Individual individual);
+    static void writeIndividual(const string fileName, Individual *individual);
 
     static vector<string> readIndividual(const string fleName);
 
 public:
-    static void writePlayers(vector<Individual> playerTeam);
+    static void writePlayers(const vector<Individual *> playerTeam);
 
-    static vector<Individual> readPlayers();
+    static vector<Individual *> readPlayers();
 
-    static vector<Individual> readEnemies();
+    static vector<Individual *> readEnemies();
 
 };
 

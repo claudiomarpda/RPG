@@ -6,11 +6,8 @@
 #include <iostream>
 #include "../include/BattleControl.h"
 #include "../include/Log.h"
+#include "../include/IndividualDAO.h"
 
-BattleControl::BattleControl(vector<Individual> &playerTeam, vector<Individual> &enemyTeam) : playerTeam(
-        playerTeam), enemyTeam(enemyTeam) {
-    teamExp = 0;
-}
 
 /**
  * Generates a random number in the given range.
@@ -30,9 +27,9 @@ void BattleControl::start() {
             Individual *target;
 
             int index = randomize(enemyTeam.size());
-            target = &enemyTeam.at(index);
+            target = enemyTeam.at(index);
 
-            p.performAttack(*target);
+            p->performAttack(*target);
             if (target->getHp().getCurrentHp() <= 0) {
                 Log::write(target->getJob() + " is dead #");
                 // add exp from defeated enemy
@@ -45,11 +42,10 @@ void BattleControl::start() {
         }
 
         for (auto &e  : enemyTeam) {
-            Individual *target;
             int index = randomize(playerTeam.size());
-            target = &playerTeam.at(index);
+            Individual *target = playerTeam.at(index);
 
-            e.performAttack(*target);
+            e->performAttack(*target);
             if (target->getHp().getCurrentHp() <= 0) {
                 Log::write(target->getJob() + " is dead");
                 enemyTeam.erase(enemyTeam.begin() + index);
@@ -64,29 +60,20 @@ void BattleControl::start() {
         Log::write("- Battle is over -");
     }
     if (isPlayerTeamDead(playerTeam)) {
-        if(Log::ON) {
+        if (Log::ON) {
             Log::write("--- You LOSE ---");
         }
     } else {
         // add exp to all team members
         for (auto &p: playerTeam) {
-            p.getLevel().addExp(teamExp);
+            p->addExp(teamExp);
         }
-        if(Log::ON) {
+        if (Log::ON) {
             Log::write("--- You WIN ---");
-            Log::write("Exp gained " + to_string(teamExp) + " EXP");
+            Log::write("You gained " + to_string(teamExp) + " EXP");
         }
     }
-
 }
-
-/*Attack*/ void BattleControl::enemyAttack() {
-    int target = randomize(/*number of enemies*/ 5);
-
-
-//   return attack;
-}
-
 
 /**
  * Checks if the is at least one individual alive in each team.
@@ -98,20 +85,25 @@ bool BattleControl::isBattleFinished() const {
 /**
  * Checks if there is at least one individual alive in a team.
  */
-bool BattleControl::isTeamDead(const vector<Individual> &team) const {
+bool BattleControl::isTeamDead(const vector<Individual *> &team) const {
     for (auto t : team) {
-        if (t.getHp().getCurrentHp() > 0) {
+        if (t->getHp().getCurrentHp() > 0) {
             return false;
         }
     }
     return true;
 }
 
-bool BattleControl::isPlayerTeamDead(const vector<Individual> &team) const {
+bool BattleControl::isPlayerTeamDead(const vector<Individual *> &team) const {
     return isTeamDead(team);
 }
 
-bool BattleControl::isEnemyTeamDead(const vector<Individual> &team) const {
+bool BattleControl::isEnemyTeamDead(const vector<Individual *> &team) const {
     return isTeamDead(team);
+}
+
+BattleControl::BattleControl(const vector<Individual *> &playerTeam, const vector<Individual *> &enemyTeam)
+        : playerTeam(playerTeam), enemyTeam(enemyTeam) {
+    teamExp = 0;
 }
 

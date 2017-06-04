@@ -8,12 +8,16 @@
 
 #include "Individual.h"
 
+const static int INT_LEVEL_UP = 3;
+
 class Mage : public Individual {
 
 public:
     Mage(const vector<string> &values);
 
     void performAttack(Individual &target) override;
+
+    void levelUp() override;
 };
 
 

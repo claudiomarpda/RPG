@@ -20,10 +20,7 @@ void AttackControl::managePhysicalAttack(Individual &attacker, Individual &targe
         damage = 1;
     }
 
-//    target.getHp().setCurrentHp(0);
-//    target.getHp().decrease(damage);
-    target.decreaseHp(damage);
-
+    target.getHp().decrease(damage);
 
     if (Log::ON) {
         Log::write(attacker.getJob() + " caused " + to_string(damage) + " damage to " + target.getJob());

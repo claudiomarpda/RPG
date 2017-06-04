@@ -4,13 +4,18 @@
 
 #include <fstream>
 #include <iostream>
+#include <cstring>
 #include "../include/Individual.h"
 #include "../include/AttackManager.h"
+#include "../include/Mage.h"
 
 Individual::Individual() {}
 
 Individual::Individual(vector<string> values) {
-
+    for (auto &&s : values) {
+        cout << s << " ";
+    }
+    cout << "end" << endl;
     // attributes
     int str = stoi(values.at(0));
     int agi = stoi(values.at(1));
@@ -22,19 +27,20 @@ Individual::Individual(vector<string> values) {
     int level = stoi(values.at(5));
     // exp
     int exp = stoi(values.at(6));
+    // next level
+    int nextLevel = stoi(values.at(7));
     // element
-    string element = (string) values.at(7);
+    string element = (string) values.at(8);
     // weapon
-    float weaponAttack = stoi(values.at(8));
+    float weaponAttack = stoi(values.at(9));
 
     setHp(HeartPoint(vit));
     setSp(SpellPoint(intel));
     setAttribute(Attribute(str, agi, vit, intel));
     setElement(element);
     setWeapon(Weapon(weaponAttack));
-    setLevel(Level(level, exp));
+    setLevel(Level(level, exp, nextLevel));
     setJob(job);
-
 }
 
 HeartPoint &Individual::getHp() {
@@ -113,10 +119,10 @@ const string Individual::logString() const {
     log += "Current SP: " + to_string(sp.getCurrentSp()) + " Max SP: " + to_string(sp.getMaxSp()) + "\n";
 
     log += "Attributes: " +
-                 to_string(attribute.getStrength()) + " " +
-                 to_string(attribute.getAgillity()) + " " +
-                 to_string(attribute.getVitality()) + " " +
-                 to_string(attribute.getIntelligence()) + "\n";
+           to_string(attribute.getStrength()) + " " +
+           to_string(attribute.getAgillity()) + " " +
+           to_string(attribute.getVitality()) + " " +
+           to_string(attribute.getIntelligence()) + "\n";
 
     log += "Element: " + element + "\n";
     log += "Weapon: " + to_string(weapon.getAttackPercentage()) + "\n";
@@ -125,9 +131,14 @@ const string Individual::logString() const {
     return log;
 }
 
-void Individual::decreaseHp(int damage) {
-    hp.decrease(damage);
+void Individual::addExp(int exp) {
+    if (getLevel().addExp(exp) == Level::LEVEL_UP) {
+        levelUp();
+    }
 }
+
+
+
 
 
 

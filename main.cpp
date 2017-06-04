@@ -11,8 +11,8 @@ int main() {
         Log::open();
     }
 
-    vector<Individual> playerTeam = IndividualDAO::readPlayers();
-    vector<Individual> enemyTeam = IndividualDAO::readEnemies();
+    vector<Individual*> playerTeam = IndividualDAO::readPlayers();
+    vector<Individual*> enemyTeam = IndividualDAO::readEnemies();
 
     BattleControl battleControl(playerTeam, enemyTeam);
     battleControl.start();
@@ -21,6 +21,9 @@ int main() {
 
     if (Log::ON) {
         Log::close();
+        for (auto &&p: playerTeam) {
+            cout << p->getLevel().getLvl() << " " << p->getLevel().getExp() << endl;
+        }
     }
 
     return 0;

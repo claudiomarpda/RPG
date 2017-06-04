@@ -6,7 +6,7 @@
 
 Level::Level() {}
 
-Level::Level(int exp, int lvl) : exp(exp), lvl(lvl) {}
+Level::Level(int lvl, int exp, int nextLevel) : lvl(lvl), exp(exp), nextLvl(nextLevel) {}
 
 int Level::getNextLvl() const {
     return nextLvl;
@@ -14,14 +14,6 @@ int Level::getNextLvl() const {
 
 void Level::setNextLvl(int nextLevel) {
     Level::nextLvl = nextLevel;
-}
-
-const int Level::getMIN() {
-    return MIN;
-}
-
-const int Level::getMAX() {
-    return MAX;
 }
 
 int Level::getExp() const {
@@ -40,17 +32,20 @@ void Level::setLvl(int lvl) {
     Level::lvl = lvl;
 }
 
-int Level::levelUp(int expBar, int lvl) {
-    lvl+=1;
-    nextLvl = nextLvl*2;
-
+void Level::levelUp(int remainingExp) {
+    lvl++;
+    nextLvl *= NEXT_LEVEL_RATE;
+    exp = remainingExp;
 }
 
-void Level::addExp(int exp){
-    int aux=0;
-    aux+=exp;
-    if(aux >= nextLvl)
-        levelUp(nextLvl, lvl);
+int Level::addExp(int exp) {
+    Level::exp += exp;
+    if (Level::exp >= nextLvl) {
+        int remainingExp = Level::exp - nextLvl;
+        levelUp(remainingExp);
+        return LEVEL_UP;
+    }
+    return 0;
 }
 
 

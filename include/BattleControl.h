@@ -11,8 +11,8 @@
 class BattleControl {
 
 private:
-    vector<Individual> playerTeam;
-    vector<Individual> enemyTeam;
+    vector<Individual *> playerTeam;
+    vector<Individual *> enemyTeam;
 
     int teamExp;
 
@@ -20,14 +20,14 @@ private:
 
     static int randomize(int range);
 
-    bool isTeamDead(const vector<Individual> &team) const;
+    bool isTeamDead(const vector<Individual *> &team) const;
 
-    bool isPlayerTeamDead(const vector<Individual> &team) const;
+    bool isPlayerTeamDead(const vector<Individual *> &team) const;
 
-    bool isEnemyTeamDead(const vector<Individual> &team) const;
+    bool isEnemyTeamDead(const vector<Individual *> &team) const;
 
 public:
-    BattleControl(vector<Individual> &playerTeam, vector<Individual> &enemyTeam);
+    BattleControl(const vector<Individual *> &playerTeam, const vector<Individual *> &enemyTeam);
 
     void start();
 

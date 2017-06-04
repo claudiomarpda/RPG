@@ -16,9 +16,6 @@
 
 using namespace std;
 
-const static string WARRIOR = "Warrior";
-const static string MAGE = "Mage";
-
 class Individual {
 
 private:
@@ -73,7 +70,9 @@ public:
 
     const string logString() const;
 
-    void decreaseHp(int damage);
+    void addExp(int exp);
+
+    virtual void levelUp() = 0;
 };
 
 

@@ -10,12 +10,13 @@
 #include "../include/Log.h"
 #include "../include/Enemy.h"
 #include "../include/Job.h"
+#include "../include/InfraException.h"
 
 /**
  * Reads all enemies from files.
  * @return a vector of pointers to Individuals with polymorphism.
  */
-vector<Individual *> IndividualDAO::readPlayers() {
+vector<Individual *> IndividualDAO::readPlayers() throw(InfraException) {
     if (Log::ON) {
         Log::write("- Player team -");
     }
@@ -45,7 +46,7 @@ vector<Individual *> IndividualDAO::readPlayers() {
  * Reads all enemies from files.
  * @return a vector of pointers to Individuals with polymorphism.
  */
-vector<Individual *> IndividualDAO::readEnemies() {
+vector<Individual *> IndividualDAO::readEnemies() throw(InfraException) {
     if (Log::ON) {
         Log::write("- Enemy team -");
     }
@@ -84,13 +85,13 @@ vector<Individual *> IndividualDAO::readEnemies() {
  * @param fileName is the file of one job, e.g, mage, warrior.
  * @return a vector with one value at each position.
  */
-vector<string> IndividualDAO::readIndividual(const string fileName) {
+vector<string> IndividualDAO::readIndividual(const string fileName) throw(InfraException) {
     ifstream in(fileName, ios::in);
     if (!in) {
         if (Log::ON) {
             Log::write("File could not be opened");
-            exit(1);
         }
+        throw InfraException("Exception reading individual file. Maybe the file name is not correct");
     }
 
     vector<string> values;
@@ -108,7 +109,7 @@ vector<string> IndividualDAO::readIndividual(const string fileName) {
 /**
  * Writes the data of all players' characters.
  */
-void IndividualDAO::writePlayers(vector<Individual *> playerTeam) {
+void IndividualDAO::writePlayers(vector<Individual *> playerTeam) throw(InfraException) {
     if (Log::ON) {
         Log::write("Saving player team to file...");
     }
@@ -123,13 +124,13 @@ void IndividualDAO::writePlayers(vector<Individual *> playerTeam) {
 /**
  * Writes an individual's data to file according to the file pattern.
  */
-void IndividualDAO::writeIndividual(const string fileName, Individual *individual) {
+void IndividualDAO::writeIndividual(const string fileName, Individual *individual) throw(InfraException) {
     ofstream out(fileName, ios::out);
     if (!out) {
         if (Log::ON) {
             Log::write("File could not be opened");
-            exit(1);
         }
+        throw InfraException("Exception writing individual file.");
     }
 
     string attributes = to_string(individual->getAttribute().getStrength()) + " " +

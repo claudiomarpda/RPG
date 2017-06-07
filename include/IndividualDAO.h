@@ -7,6 +7,7 @@
 
 #include <string>
 #include "Individual.h"
+#include "InfraException.h"
 
 using namespace std;
 
@@ -24,16 +25,16 @@ const static string ENEMY3_FILE = "enemy3.rpg";
 class IndividualDAO {
 
 private:
-    static void writeIndividual(const string fileName, Individual *individual);
+    static void writeIndividual(const string fileName, Individual *individual) throw(InfraException);
 
-    static vector<string> readIndividual(const string fleName);
+    static vector<string> readIndividual(const string fleName) throw(InfraException);
 
 public:
-    static void writePlayers(const vector<Individual *> playerTeam);
+    static void writePlayers(const vector<Individual *> playerTeam) throw(InfraException);
 
-    static vector<Individual *> readPlayers();
+    static vector<Individual *> readPlayers()throw(InfraException);
 
-    static vector<Individual *> readEnemies();
+    static vector<Individual *> readEnemies() throw(InfraException);
 
 };
 

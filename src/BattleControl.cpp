@@ -6,6 +6,7 @@
 #include <iostream>
 #include "../include/BattleControl.h"
 #include "../include/Log.h"
+#include "../include/Job.h"
 
 BattleControl::BattleControl(const vector<Individual *> &playerTeam, const vector<Individual *> &enemyTeam)
         : playerTeam(playerTeam), enemyTeam(enemyTeam) {
@@ -33,7 +34,14 @@ void BattleControl::start() {
             int index = randomize(enemyTeam.size());
             target = enemyTeam.at(index);
 
-            p->performAttack(*target);
+            // automated skill perform for mage job
+            if(p->getJob().compare(Job::MAGE) == 0) {
+                p->performMagicalSkill(*target);
+            }
+            else {
+                p->performAttack(*target);
+            }
+
             if (target->getHp().getCurrentHp() <= 0) {
                 if(Log::ON) {
                     Log::write(target->getJob() + " is dead #");

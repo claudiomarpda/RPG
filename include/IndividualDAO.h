@@ -15,6 +15,7 @@ const static string PRIEST_FILE = "priest.rpg";
 const static string WARRIOR_FILE = "warrior.rpg";
 const static string ENEMY1_FILE = "enemy1.rpg";
 const static string ENEMY2_FILE = "enemy2.rpg";
+const static string ENEMY3_FILE = "enemy3.rpg";
 
 /**
  * Handles the persistence of individuals in files.

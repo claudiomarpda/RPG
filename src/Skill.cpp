@@ -4,7 +4,10 @@
 
 #include "../include/Skill.h"
 
-Skill::Skill(const string &name, int spConsumption, const string &element) : name(name), spConsumption(spConsumption), element(element) {}
+const string FIRE = "Fire";
+const string BLIZZARD = "Blizzard";
+const string WIND = "Wind";
+const string EARTH = "Earth";
 
 const string &Skill::getName() const {
     return name;
@@ -20,4 +23,15 @@ int Skill::getSpConsumption() const {
 
 void Skill::setSpConsumption(int spConsumption) {
     Skill::spConsumption = spConsumption;
+}
+
+Skill::Skill(const string &name, int spConsumption, const string &element) :
+        name(name), spConsumption(spConsumption), element(element) {}
+
+const string &Skill::getElement() const {
+    return element;
+}
+
+void Skill::setElement(const string &element) {
+    Skill::element = element;
 }

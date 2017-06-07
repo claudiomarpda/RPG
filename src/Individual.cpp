@@ -34,6 +34,16 @@ Individual::Individual(vector<string> values) {
     setWeapon(Weapon(weaponAttack));
     setLevel(Level(level, exp, nextLevel));
     setJob(job);
+
+    // TODO: Instantiate skills from individual file
+/*
+    if (job.compare(Job::MAGE) == 0) {
+        string skillName = (string) values.at(10);
+        skills.push_back(Skill((string) values.at(10), 5, Element::FIRE));
+        skills.push_back(Skill((string) values.at(11), 5, Element::BLIZZARD));
+        skills.push_back(Skill((string) values.at(12), 5, Element::WIND));
+        skills.push_back(Skill((string) values.at(13), 5, Element::EARTH));
+    }*/
 }
 
 HeartPoint &Individual::getHp() {
@@ -104,6 +114,7 @@ void Individual::performAttack(Individual &target) {
     AttackControl::managePhysicalAttack(*this, target);
 }
 
+
 const string Individual::logString() const {
     string log = "";
 
@@ -128,6 +139,10 @@ void Individual::addExp(int exp) {
     if (getLevel().addExp(exp) == Level::LEVEL_UP) {
         levelUp();
     }
+}
+
+void Individual::performMagicalSkill(Individual &target) {
+    AttackControl::manageMagicalAttack(*this, target);
 }
 
 

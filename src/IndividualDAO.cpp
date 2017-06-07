@@ -9,6 +9,7 @@
 #include "../include/Warrior.h"
 #include "../include/Log.h"
 #include "../include/Enemy.h"
+#include "../include/Job.h"
 
 /**
  * Reads all enemies from files.
@@ -39,7 +40,8 @@ vector<Individual *> IndividualDAO::readPlayers() {
 
     return playerTeam;
 }
-]/**
+
+/**
  * Reads all enemies from files.
  * @return a vector of pointers to Individuals with polymorphism.
  */
@@ -64,6 +66,14 @@ vector<Individual *> IndividualDAO::readEnemies() {
 
     if (Log::ON) {
         Log::write(enemy2->logString());
+    }
+
+    values = readIndividual(ENEMY3_FILE);
+    Enemy *enemy3 = new Enemy(values);
+    enemyTeam.push_back((Individual *) enemy3);
+
+    if (Log::ON) {
+        Log::write(enemy3->logString());
     }
 
     return enemyTeam;
@@ -136,4 +146,8 @@ void IndividualDAO::writeIndividual(const string fileName, Individual *individua
     out << level_exp << endl;
     out << individual->getElement() << endl;
     out << individual->getWeapon().getAttackPercentage() << endl;
+    if (individual->getJob().compare(Job::MAGE) == 0) {
+//        out << Skill::FIRE << " " << Skill::BLIZZARD << " " << Skill::WIND << " " << Skill::EARTH;
+        out << "Fire Blizzard Wind Earth";
+    }
 }

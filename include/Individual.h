@@ -75,6 +75,8 @@ public:
 
     void addExp(int exp);
 
+    void performMagicalSkill(Individual &target);
+
     /**
      * Allows level up bonus in a specific way in each concrete class.
      */

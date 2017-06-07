@@ -12,11 +12,13 @@ using namespace std;
 class Element {
 
 public:
-    static const string NEUTRAL = "Neutral";
-    static const string FIRE = "Fire";
-    static const string BLIZZARD = "Blizzard";
-    static const string WIND = "Wind";
-    static const string EARTH = "Earth";
+    static const string NEUTRAL;
+    static const string FIRE;
+    static const string BLIZZARD;
+    static const string WIND;
+    static const string EARTH;
+
+    static float compare(string element1, string element2);
 };
 
 #endif //RPG_ELEMENT_H

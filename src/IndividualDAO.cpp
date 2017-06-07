@@ -69,13 +69,13 @@ vector<Individual *> IndividualDAO::readEnemies() throw(InfraException) {
         Log::write(enemy2->logString());
     }
 
-    values = readIndividual(ENEMY3_FILE);
-    Enemy *enemy3 = new Enemy(values);
-    enemyTeam.push_back((Individual *) enemy3);
-
-    if (Log::ON) {
-        Log::write(enemy3->logString());
-    }
+//    values = readIndividual(ENEMY3_FILE);
+//    Enemy *enemy3 = new Enemy(values);
+//    enemyTeam.push_back((Individual *) enemy3);
+//
+//    if (Log::ON) {
+//        Log::write(enemy3->logString());
+//    }
 
     return enemyTeam;
 }

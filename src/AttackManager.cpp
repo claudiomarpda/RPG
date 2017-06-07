@@ -53,12 +53,10 @@ void AttackControl::manageMagicalAttack(Individual &attacker, Individual &target
     // TODO: get the magical attack from individual's skill
 //    Skill skill = attacker.getSkills().at(0);
 
-    cout << "damage antes" << damage << endl;
     // calculates the damage according to element comparison between attacker and target
     damage = (int) (damage + (damage * Element::compare(Element::FIRE, target.getElement())));
 
     target.getHp().decrease(damage);
-    cout << "damage depois" << damage << endl;
 
     if (Log::ON) {
         Log::write(attacker.getJob() + " caused " + to_string(damage) + " damage to " + target.getJob());

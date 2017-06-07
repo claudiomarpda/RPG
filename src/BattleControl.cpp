@@ -65,7 +65,7 @@ void BattleControl::start() {
                 if(Log::ON) {
                     Log::write(target->getJob() + " is dead #");
                 }
-                enemyTeam.erase(enemyTeam.begin() + index);
+                playerTeam.erase(playerTeam.begin() + index);
                 if (isBattleFinished()) {
                     break;
                 }

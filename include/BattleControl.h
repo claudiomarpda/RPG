@@ -17,7 +17,7 @@ class BattleControl {
 private:
     vector<Individual *> playerTeam;
     vector<Individual *> enemyTeam;
-
+    Individual *i[5];
     int teamExp;
 
     bool isBattleFinished() const;

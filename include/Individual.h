@@ -69,11 +69,12 @@ public:
 
     void setJob(const string &job);
 
-    virtual void performAttack(Individual &target);
 
     const string logString() const;
 
     void addExp(int exp);
+
+    virtual void performAttack(Individual &target);
 
     void performMagicalSkill(Individual &target);
 

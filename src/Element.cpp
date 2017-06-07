@@ -15,7 +15,6 @@ const string Element::EARTH = "Earth";
  * Calculates a percentage according to elements comparison
  */
 float Element::compare(string element1, string element2) {
-    cout << "\nElement1 " << element1 << ", " << "Element2 " << element2 << endl;
     if (element1.compare(FIRE) == 0) {
         if (element2.compare(FIRE) == 0) {
             return 1;
@@ -24,7 +23,6 @@ float Element::compare(string element1, string element2) {
         } else if (element2.compare(WIND) == 0) {
             return 1;
         } else if (element2.compare(EARTH) == 0) {
-            cout << "\nopa........" << endl;
             return 0.5f;
         }
     }

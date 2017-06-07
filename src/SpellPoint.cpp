@@ -30,7 +30,7 @@ void SpellPoint::setCurrentSp(int currentSp) {
 }
 
 int SpellPoint::calculateMaxSp(int intelligence) {
-    setMaxSp(intelligence * variableSp);
+    setMaxSp(intelligence * SP_RATE);
 }
 
 
